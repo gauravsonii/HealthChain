@@ -1,14 +1,19 @@
 {
-  "name": "healthcare",
+  "name": "healthchain-ai",
   "version": "1.0.0",
-  "description": "health care",
-  "main": "index.js",
+  "description": "HealthChain AI - Blockchain-based Healthcare Management System",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run start",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm run start:prod",
+    "install:all": "cd client && npm install && cd ../server && npm install"
   },
-  "author": "Parth Nath Chauhan",
-  "license": "CYBER LIFE",
-  "dependencies": {
-    "mongod": "^2.0.0"
+  "author": "Gaurav Soni",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }
